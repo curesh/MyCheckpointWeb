@@ -1,8 +1,9 @@
 import React from "react";
 import "./ItemEntry.css";
-//import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
+import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 
 function ItemEntry(props) {
+	/*const*/ 
 	const {itemName, itemNum, present } = props;
 	//present = 1;
 

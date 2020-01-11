@@ -1,6 +1,6 @@
 import React from "react";
 import "./makeCheckForItem.css";
-import ItemEntry from "./ItemEntry/ItemEntry";
+import ItemEntry from "../ItemEntry/ItemEntry";
 
 function makecheck(props){
     const {present} = props;

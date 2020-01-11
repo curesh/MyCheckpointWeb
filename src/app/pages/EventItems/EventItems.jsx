@@ -24,7 +24,25 @@ function EventItems(props) {
 
     const addItem = () => {
         setItems(prev => {
-            return [...prev, { itemName: "", present: false }];
+            return [
+                ...prev,
+                {
+                    itemName: "",
+                    itemNum: prev[prev.length - 1].itemNum + 1,
+                    present: false
+                }
+            ];
+        });
+    };
+    const updateItem = (id, value) => {
+        setItems(prev => {
+            const result = prev.map(el => {
+                if (el.itemNum == id) {
+                    el.itemName = value;
+                }
+                return el;
+            });
+            return result;
         });
     };
     const i = items.map(item => {
@@ -33,6 +51,7 @@ function EventItems(props) {
                 itemName={item.itemName}
                 itemNum={item.itemNum}
                 present={item.present}
+                updateItem={updateItem}
             />
         );
     });

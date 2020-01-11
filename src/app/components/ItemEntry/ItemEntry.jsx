@@ -1,31 +1,31 @@
 import React from "react";
 import "./ItemEntry.css";
-//import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
+import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 
 function ItemEntry(props) {
-    //present = 1;
+	/*should be const?*/ 
+	var {itemName, itemNum, present, deleteItem} = props;
+	//present = 1;
+	/*
+	let askForData = false;
+	if(itemName == ""){
+		askForData = true;
+	}
+	const askForDataFunc = () => {
+		if(askForData){
 
-    return (
-        <div>
-            <div className="container">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-check text-left">
-                            <input
-                                class="form-check-input"
-                                type="checkbox"
-                                value=""
-                                id="defaultCheck1"
-                            />
-                            <label class="form-check-label" for="defaultCheck1">
-                                Default checkbox
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+		}
+	}
+	*/
+	return (
+		<div>
+			
+			<input type = "checkbox" ></input>
+			<input type="text" name = {itemName} placeholder = {itemName}/>
+			<a className = "btn btn-large btn-success" onClick = {() => deleteItem(itemNum)}>x</a>
+			
+		</div>
+	);
 }
 
 export default ItemEntry;

@@ -62,7 +62,6 @@ function ItemEntry(props) {
             </div>
         </div>
     );
->>>>>>> e7c9e406fcccb04795a570e101505bbb6dc66d48
 }
 
 export default ItemEntry;

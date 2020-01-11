@@ -1,31 +1,33 @@
-import React, {useState, useEffect} from "react";
+  
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import ItemEntry from '../../components/ItemEntry/ItemEntry';
-import GetInputForNewItem from '../../components/GetInputForNewItem/GetInputForNewItem'
+import ItemEntry from "../../components/ItemEntry/ItemEntry";
+import GetInputForNewItem from "../../components/GetInputForNewItem/GetInputForNewItem";
+import "./EventItems.css";
 
 function EventItems(props) {
-	const {itemCount} = props.params.itemCount
-	let m_eventName = "Sbhacks event";
-	let m_date = 12262004;
-	let m_dateString = m_date + " ";
-	let m_numberOfItems = 2;
-	m_dateString = m_dateString.slice(0,2) + "/" + m_dateString.slice(2,4) + "/" + m_dateString.slice(4);
-	const [items, setItems] = useState([]);
-	useEffect(() => {
-		setItems([
-			{ itemName: "yerba", itemNum: 1, present: 1 },
-			{ itemName: "mate", itemNum: 2, present: 0},
-		]);
-	}, []);
-
-	const deleteItem = (key) => {
-		items = items.filter(function(item) {
-			return item.itemNum != key;
-		}) 
-	};
-
-
+    let m_eventName = "Sbhacks event";
+    let m_date = 12262004;
+    let m_dateString = m_date + " ";
+    m_dateString =
+        m_dateString.slice(0, 2) +
+        "/" +
+        m_dateString.slice(2, 4) +
+        "/" +
+        m_dateString.slice(4);
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        setItems([
+            { itemName: "yerba", itemNum: 1, present: 1 },
+            { itemName: "mate", itemNum: 2, present: 0 }
+        ]);
+    }, []);
+	const deleteItem = (id) => {
+		setItems(prev => {
+			return prev.filter((item) => item.itemNum!=id)
+		})
+	
+	}
     const addItem = () => {
         setItems(prev => {
             return [
@@ -55,7 +57,8 @@ function EventItems(props) {
                 itemName={item.itemName}
                 itemNum={item.itemNum}
                 present={item.present}
-                updateItem={updateItem}
+				updateItem={updateItem}
+				deleteItem = {deleteItem}
             />
         );
     });
@@ -77,11 +80,9 @@ function EventItems(props) {
                 </div>
             </div>
 
-			
-		</div>
-		
-			
-	);
+            <Link to="/myevents">Back</Link>
+        </div>
+    );
 }
 
 export default EventItems;

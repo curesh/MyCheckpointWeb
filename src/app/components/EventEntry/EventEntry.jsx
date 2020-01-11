@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 function EventEntry(props) {
 	const { name, date, id } = props;
 	const [count, setCount] = useState({});
-	useEffect(()=>{
+	useEffect(()=>
 		setCount({
 			checked: 0,
 			total: 1
 		})
-	})
+	,[])
 
     return (
         <div>

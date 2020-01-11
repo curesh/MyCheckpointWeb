@@ -5,7 +5,7 @@ import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 function ItemEntry(props) {
     /*should be const?*/
 
-    var { itemName, itemNum, present, updateItem } = props;
+    var { itemName, itemNum, present, updateItem, deleteItem } = props;
     //present = 1;
     let askForData = false;
     if (itemName == "") {
@@ -34,7 +34,8 @@ function ItemEntry(props) {
                     onChange={event => updateItem(itemNum, event.target.value)}
                 />
                 <div className="input-group-append">
-                    <button className="btn btn-primary">x</button>
+					<button id={itemNum} onClick = {event => deleteItem(event.target.id)} className="btn btn-primary">x</button>
+				
                 </div>
             </div>
         </div>

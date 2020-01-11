@@ -4,12 +4,12 @@ import MyEvents from "./MyEvents/MyEvents";
 import EventItems from "./EventItems/EventItems";
 
 function Routes() {
-	return (
-		<Switch>
-			<Route exact path="/myevents" component={MyEvents} />
-			<Route path="/myevents/event" component={EventItems} />
-		</Switch>
-	);
+    return (
+        <Switch>
+            <Route exact path="/myevents" component={MyEvents} />
+            <Route path="/myevents/event/:id" component={EventItems} />
+        </Switch>
+    );
 }
 
 export default Routes;

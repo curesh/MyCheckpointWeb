@@ -16,7 +16,9 @@ function MyEvents() {
 
     const todayEvents = events.map(event => {
         if (event.category === "Today") {
-            return <EventEntry name={event.name} date={event.date} />;
+            return (
+                <EventEntry name={event.name} date={event.date} id={event.id} />
+            );
         } else {
             return null;
         }
@@ -24,7 +26,9 @@ function MyEvents() {
 
     const weekEvents = events.map(event => {
         if (event.category === "Week") {
-            return <EventEntry name={event.name} date={event.date} />;
+            return (
+                <EventEntry name={event.name} date={event.date} id={event.id} />
+            );
         } else {
             return null;
         }
@@ -32,59 +36,64 @@ function MyEvents() {
 
     const monthEvents = events.map(event => {
         if (event.category === "Month") {
-            return <EventEntry name={event.name} date={event.date} />;
+            return (
+                <EventEntry name={event.name} date={event.date} id={event.id} />
+            );
         } else {
             return null;
         }
     });
     return (
         <div className="container">
-            <ul className="list-group col-lg-12">
-                <h1 className="text-left list-group-item col-lg-12">
+            <ul className="list-group">
+                <h1 className="text-left">My Events</h1>
+            </ul>
+            <ul className="list-group col-sm-12">
+                <h3 className="text-left list-group-item bg-info">
                     <div className="row">
-                        <div className="col-lg-6">
-                            <h1>Today</h1>
+                        <div className="col-lg-6 col-5">
+                            <h4>Today</h4>
                         </div>
-                        <div className="col-lg-4">
-                            <h1>Date</h1>
+                        <div className="col-lg-4 col-4">
+                            <h4>Date</h4>
                         </div>
-                        <div className="col-lg-2">
-                            <h1>#/total</h1>
+                        <div className="col-lg-2 col-3">
+                            <h4 className="text-right">#/total</h4>
                         </div>
                     </div>
-                </h1>
+                </h3>
                 {todayEvents}
             </ul>
             <ul className="list-group col-lg-12">
-                <h1 className="text-left list-group-item col-lg-12">
+                <h3 className="text-left list-group-item bg-info">
                     <div className="row">
-                        <div className="col-lg-6">
-                            <h1>Today</h1>
+                        <div className="col-lg-6 col-5">
+                            <h4>Week</h4>
                         </div>
-                        <div className="col-lg-4">
-                            <h1>Date</h1>
+                        <div className="col-lg-4 col-4">
+                            <h4>Date</h4>
                         </div>
-                        <div className="col-lg-2">
-                            <h1>#/total</h1>
+                        <div className="col-lg-2 col-3">
+                            <h4 className="text-right">#/total</h4>
                         </div>
                     </div>
-                </h1>
+                </h3>
                 {weekEvents}
             </ul>
             <ul className="list-group col-lg-12">
-                <h1 className="text-left list-group-item col-lg-12">
+                <h3 className="text-left list-group-item bg-info">
                     <div className="row">
-                        <div className="col-lg-6">
-                            <h1>Today</h1>
+                        <div className="col-lg-6 col-5">
+                            <h4>Month</h4>
                         </div>
-                        <div className="col-lg-4">
-                            <h1>Date</h1>
+                        <div className="col-lg-4 col-4">
+                            <h4>Date</h4>
                         </div>
-                        <div className="col-lg-2">
-                            <h1>#/total</h1>
+                        <div className="col-lg-2 col-3">
+                            <h4 className="text-right">#/total</h4>
                         </div>
                     </div>
-                </h1>
+                </h3>
                 {monthEvents}
             </ul>
         </div>

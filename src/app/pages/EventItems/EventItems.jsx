@@ -1,38 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ItemEntry from "../../components/ItemEntry/ItemEntry";
-import "./EventItems.css";
+import ItemEntry from '../../components/ItemEntry/ItemEntry';
+import GetInputForNewItem from '../../components/GetInputForNewItem/GetInputForNewItem'
+
 
 function EventItems(props) {
-    const { id } = props.match.params.id;
-    const [items, setItems] = useState([]);
-    useEffect(() => {
-        setItems([
-            { itemName: "yerba", itemNum: 1, present: 1 },
-            { itemName: "mate", itemNum: 2, present: 0 }
-        ]);
-    }, []);
-    const i = items.map(item => {
-        return (
-            <ItemEntry
-                itemName={item.itemName}
-                itemNum={item.itemNum}
-                present={item.present}
-            />
-        );
-    });
-    return (
-        <div className="container">
-            <div className="card">
-                <div className="card-title">
-                    <h1>Event Name</h1>
-                    <h4>Date</h4>
-                </div>
-                <div className="card-body">{i}</div>
-            </div>
-            <Link to="/myevents">Back</Link>
-        </div>
-    );
+	let m_eventName = "Sbhacks event";
+	let m_date = 12262004;
+	let m_dateString = m_date + " ";
+	m_dateString = m_dateString.slice(0,2) + "/" + m_dateString.slice(2,4) + "/" + m_dateString.slice(4);
+	const [items, setItems] = useState([]);
+	useEffect(() => {
+		setItems([
+			{ itemName: "yerba", itemNum: 1, present: 1 },
+			{ itemName: "mate", itemNum: 2, present: 0},
+		]);
+	}, []);
+
+	const addItem = () => {
+		setItems((prev) => {
+			return [...prev, {itemName: "", present: false}]
+		})
+	}
+	const i = items.map(
+		(item) => {
+			return <ItemEntry itemName={item.itemName} itemNum={item.itemNum} present = {item.present} />;
+		}
+	);
+	return (
+
+
+		<div className eventNameClass>
+			<h1>{m_eventName}</h1>
+			<header className dateStringClass>
+				<h1>{m_dateString}</h1>
+				<ul>
+					<li>
+						{i}
+					</li>
+				</ul>
+				<div>
+					<a className="btn btn-large btn-success" onClick={addItem} >Add Item</a>
+				</div>
+				
+				<Link to="/myevents">Back</Link>
+
+			</header>
+			
+		</div>
+		
+			
+	);
 }
 
 export default EventItems;

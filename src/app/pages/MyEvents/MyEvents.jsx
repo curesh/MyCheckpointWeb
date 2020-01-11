@@ -17,7 +17,12 @@ function MyEvents() {
     const todayEvents = events.map(event => {
         if (event.category === "Today") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} />
+                <EventEntry
+                    name={event.name}
+                    date={event.date}
+                    id={event.id}
+                    key={event.id}
+                />
             );
         } else {
             return null;

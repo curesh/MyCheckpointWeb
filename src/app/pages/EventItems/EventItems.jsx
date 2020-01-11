@@ -21,14 +21,21 @@ function EventItems(props) {
             { itemName: "mate", itemNum: 2, present: 0 }
         ]);
     }, []);
-
+    const deleteItem = id => {
+        setItems(prev => {
+            return prev.filter(item => item.itemNum != id);
+        });
+    };
     const addItem = () => {
         setItems(prev => {
             return [
                 ...prev,
                 {
                     itemName: "",
-                    itemNum: prev[prev.length - 1].itemNum + 1,
+                    itemNum:
+                        prev.length === 0
+                            ? 0
+                            : prev[prev.length - 1].itemNum + 1,
                     present: false
                 }
             ];
@@ -52,11 +59,13 @@ function EventItems(props) {
                 itemNum={item.itemNum}
                 present={item.present}
                 updateItem={updateItem}
+                deleteItem={deleteItem}
+                key={item.itemNum}
             />
         );
     });
     return (
-        <div className eventNameClass>
+        <div>
             <div className="card">
                 <h1>Event Items</h1>
                 <h3>Date</h3>

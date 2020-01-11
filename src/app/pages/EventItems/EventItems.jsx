@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import ItemEntry from '../../components/ItemEntry/ItemEntry';
+import GetInputForNewItem from '../../components/GetInputForNewItem/GetInputForNewItem'
+
 
 function EventItems(props) {
 	let m_eventName = "Sbhacks event";
@@ -15,12 +17,20 @@ function EventItems(props) {
 			{ itemName: "mate", itemNum: 2, present: 0},
 		]);
 	}, []);
+
+	const addItem = () => {
+		setItems((prev) => {
+			return [...prev, {itemName: "", present: false}]
+		})
+	}
 	const i = items.map(
 		(item) => {
 			return <ItemEntry itemName={item.itemName} itemNum={item.itemNum} present = {item.present} />;
 		}
 	);
 	return (
+
+
 		<div className eventNameClass>
 			<h1>{m_eventName}</h1>
 			<header className dateStringClass>
@@ -30,9 +40,14 @@ function EventItems(props) {
 						{i}
 					</li>
 				</ul>
+				<div>
+					<a className="btn btn-large btn-success" onClick={addItem} >Add Item</a>
+				</div>
+				
 				<Link to="/myevents">Back</Link>
-			
+
 			</header>
+			
 		</div>
 		
 			

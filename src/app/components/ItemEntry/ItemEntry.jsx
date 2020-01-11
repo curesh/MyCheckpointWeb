@@ -1,14 +1,14 @@
 import React from "react";
 import "./ItemEntry.css";
-import makeCheckForItem from "../makeCheckForItem";
+//import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 
 function ItemEntry(props) {
 	const {itemName, itemNum, present } = props;
-	present = 1;
+	//present = 1;
 
 	return (
 		<div>
-			<makeCheckForItem present = {present}/> {itemName} {itemNum}
+				 {itemName} {itemNum} {present}
 		</div>
 	);
 }

@@ -1,12 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./EventEntry.css";
 import { Link } from "react-router-dom";
 
 function EventEntry(props) {
-    const { name, date, id } = props;
+	const { name, date, id } = props;
+	const [count, setCount] = useState({});
+	useEffect(()=>{
+		setCount({
+			checked: 0,
+			total: 1
+		})
+	})
+
     return (
         <div>
-            <Link to={"./myevents/event/" + id} params={{ itemCount }}>
+            <Link to={"./myevents/event/" + id} params={{ count }}>
                 <li className="list-group-item">
                     <div className="text-left">
                         <div className="row">

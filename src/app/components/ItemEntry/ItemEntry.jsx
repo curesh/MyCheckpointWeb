@@ -5,7 +5,7 @@ import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 function ItemEntry(props) {
     /*should be const?*/
 
-    var { itemName, itemNum, present } = props;
+    var { itemName, itemNum, present, updateItem } = props;
     //present = 1;
     let askForData = false;
     if (itemName == "") {
@@ -30,6 +30,8 @@ function ItemEntry(props) {
                     type="text"
                     class="form-control"
                     aria-describedby="basic-addon1"
+                    value={itemName}
+                    onChange={event => updateItem(itemNum, event.target.value)}
                 />
                 <div className="input-group-append">
                     <button className="btn btn-primary">x</button>

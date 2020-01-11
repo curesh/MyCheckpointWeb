@@ -3,14 +3,29 @@ import "./ItemEntry.css";
 //import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 
 function ItemEntry(props) {
-	const {itemName, itemNum, present } = props;
-	//present = 1;
+    //present = 1;
 
-	return (
-		<div>
-				 {itemName} {itemNum} {present}
-		</div>
-	);
+    return (
+        <div>
+            <div className="container">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-check text-left">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="defaultCheck1"
+                            />
+                            <label class="form-check-label" for="defaultCheck1">
+                                Default checkbox
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default ItemEntry;

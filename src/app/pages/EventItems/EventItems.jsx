@@ -19,40 +19,64 @@ function EventItems(props) {
 		]);
 	}, []);
 
-	const addItem = () => {
-		setItems((prev) => {
-			return [...prev, {itemName: "", present: false}]
-		})
-	}
 	const deleteItem = (key) => {
 		items = items.filter(function(item) {
 			return item.itemNum != key;
 		}) 
 	};
-	const i = items.map(
-		(item) => {
-			return <ItemEntry itemName={item.itemName} itemNum={item.itemNum} present = {item.present} deleteItem={deleteItem} />;
-		}
-	);
-	return (
 
 
-		<div className eventNameClass>
-			<h1>{m_eventName}</h1>
-			<header className dateStringClass>
-				<h1>{m_dateString}</h1>
-				
-					
-					{i}
-				
-		
-				<div>
-					<a className="btn btn-large btn-success" onClick={addItem} >Add Item</a>
-				</div>
-				
-				<Link to="/myevents">Back</Link>
+    const addItem = () => {
+        setItems(prev => {
+            return [
+                ...prev,
+                {
+                    itemName: "",
+                    itemNum: prev[prev.length - 1].itemNum + 1,
+                    present: false
+                }
+            ];
+        });
+    };
+    const updateItem = (id, value) => {
+        setItems(prev => {
+            const result = prev.map(el => {
+                if (el.itemNum == id) {
+                    el.itemName = value;
+                }
+                return el;
+            });
+            return result;
+        });
+    };
+    const i = items.map(item => {
+        return (
+            <ItemEntry
+                itemName={item.itemName}
+                itemNum={item.itemNum}
+                present={item.present}
+                updateItem={updateItem}
+            />
+        );
+    });
+    return (
+        <div className eventNameClass>
+            <div className="card">
+                <h1>Event Items</h1>
+                <h3>Date</h3>
+                <div className="card-body">
+                    {i}
+                    <div>
+                        <a
+                            className="btn btn-large btn-success"
+                            onClick={addItem}
+                        >
+                            Add Item
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-			</header>
 			
 		</div>
 		

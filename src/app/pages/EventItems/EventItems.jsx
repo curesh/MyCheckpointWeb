@@ -10,22 +10,23 @@ function EventItems(props) {
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		setItems([
-			{ name: "yerba", itemNum: 1, present: 1 },
-			{ name: "mate", itemNum: 2, present: 0},
+			{ itemName: "yerba", itemNum: 1, present: 1 },
+			{ itemName: "mate", itemNum: 2, present: 0},
 		]);
 	}, []);
 	const i = items.map(
 		(item) => {
-			return <ItemEntry itemName={item.name} itemNum={item.itemNum} present = {item, item.present} />;
+			return <ItemEntry itemName={item.itemName} itemNum={item.itemNum} present = {item.present} />;
 		}
 	);
-
 	return (
 		<div className m_eventName>
 			<header className m_dateString>
-				
-				{i}
-			
+				<ul>
+					<li>
+						{i}
+					</li>
+				</ul>
 				<Link to="/myevents">Back</Link>
 			
 			</header>

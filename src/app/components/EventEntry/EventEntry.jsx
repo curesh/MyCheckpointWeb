@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./EventEntry.css";
 import { Link } from "react-router-dom";
 
@@ -6,7 +6,7 @@ function EventEntry(props) {
     const { name, date, id } = props;
     return (
         <div>
-            <Link to={"./myevents/event/" + id}>
+            <Link to={"./myevents/event/" + id} params={{ itemCount }}>
                 <li className="list-group-item">
                     <div className="text-left">
                         <div className="row">

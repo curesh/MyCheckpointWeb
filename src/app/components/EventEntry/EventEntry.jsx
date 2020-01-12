@@ -3,11 +3,14 @@ import "./EventEntry.css";
 import { Link } from "react-router-dom";
 
 function EventEntry(props) {
-    const { name, date, id } = props;
+    const { name, date, id, color } = props;
+    const styles = {
+        backgroundColor: color
+    };
     return (
         <div>
             <Link to={"./myevents/event/" + id}>
-                <li className="list-group-item">
+                <li className="list-group-item" style={styles}>
                     <div className="text-left">
                         <div className="row">
                             <div className="col-lg-6 col-5">

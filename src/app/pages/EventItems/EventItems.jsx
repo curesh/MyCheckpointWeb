@@ -6,14 +6,10 @@ import "./EventItems.css";
 
 function EventItems(props) {
     let m_eventName = "Sbhacks event";
-    let m_date = 12262004;
-    let m_dateString = m_date + " ";
-    m_dateString =
-        m_dateString.slice(0, 2) +
-        "/" +
-        m_dateString.slice(2, 4) +
-        "/" +
-        m_dateString.slice(4);
+    var date = new Date();
+    var dateString =
+        (date.getMonth() + 1).toString() + "/" + date.getDate().toString();
+    console.log(dateString);
     const [items, setItems] = useState([]);
     useEffect(() => {
         setItems([
@@ -68,7 +64,7 @@ function EventItems(props) {
         <div>
             <div className="card">
                 <h1>Event Items</h1>
-                <h3>Date</h3>
+                <h3>{dateString}</h3>
                 <div className="card-body">
                     {i}
                     <div>

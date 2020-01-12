@@ -1,6 +1,20 @@
+.container {
+    box-sizing: border-box;
+}
 ul {
-    margin: 30px;
+    padding-bottom: 60px;
 }
 body {
     margin-bottom: 50px;
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+ul a:hover {
+    color: black;
+    font-size: larger;
+    text-decoration: none;
 }

@@ -8,11 +8,41 @@ function MyEvents() {
 
     useEffect(() => {
         setEvents([
-            { name: "Event", date: "lorem", category: "Week", id: "1" },
-            { name: "Event", date: "lorem", category: "Today", id: "2" },
-            { name: "Event", date: "lorem", category: "Month", id: "3" },
-            { name: "Event", date: "lorem", category: "Today", id: "4" },
-            { name: "Event", date: "lorem", category: "Week", id: "5" }
+            {
+                name: "Event",
+                date: "lorem",
+                category: "Week",
+                id: "1",
+                color: "#e4ffa1"
+            },
+            {
+                name: "Event",
+                date: "lorem",
+                category: "Today",
+                id: "2",
+                color: "#ff8d5c"
+            },
+            {
+                name: "Event",
+                date: "lorem",
+                category: "Month",
+                id: "3",
+                color: "#8437a1"
+            },
+            {
+                name: "Event",
+                date: "lorem",
+                category: "Today",
+                id: "4",
+                color: "#62a5d1"
+            },
+            {
+                name: "Event",
+                date: "lorem",
+                category: "Week",
+                id: "5",
+                color: "#ebb9d4"
+            }
         ]);
     }, []);
 
@@ -24,6 +54,7 @@ function MyEvents() {
                     date={event.date}
                     id={event.id}
                     key={event.id}
+                    color={event.color}
                 />
             );
         } else {
@@ -34,7 +65,13 @@ function MyEvents() {
     const weekEvents = events.map(event => {
         if (event.category === "Week") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} key={event.id} />
+                <EventEntry
+                    name={event.name}
+                    date={event.date}
+                    id={event.id}
+                    key={event.id}
+                    color={event.color}
+                />
             );
         } else {
             return null;
@@ -44,19 +81,25 @@ function MyEvents() {
     const monthEvents = events.map(event => {
         if (event.category === "Month") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} key={event.id} />
+                <EventEntry
+                    name={event.name}
+                    date={event.date}
+                    id={event.id}
+                    key={event.id}
+                    color={event.color}
+                />
             );
         } else {
             return null;
         }
     });
     return (
-        <div className="container">
+        <div>
             <ul className="list-group">
                 <h1 className="text-left">My Events</h1>
             </ul>
             <ul className="list-group col-sm-12">
-                <h3 className="text-left list-group-item bg-info">
+                <h3 className="text-left list-group-item bg-primary text-white">
                     <div className="row">
                         <div className="col-lg-6 col-5">
                             <h4>Today</h4>
@@ -72,7 +115,7 @@ function MyEvents() {
                 {todayEvents}
             </ul>
             <ul className="list-group col-lg-12">
-                <h3 className="text-left list-group-item bg-info">
+                <h3 className="text-left list-group-item bg-primary text-white">
                     <div className="row">
                         <div className="col-lg-6 col-5">
                             <h4>Week</h4>
@@ -88,7 +131,7 @@ function MyEvents() {
                 {weekEvents}
             </ul>
             <ul className="list-group col-lg-12">
-                <h3 className="text-left list-group-item bg-info">
+                <h3 className="text-left list-group-item bg-primary text-white">
                     <div className="row">
                         <div className="col-lg-6 col-5">
                             <h4>Month</h4>

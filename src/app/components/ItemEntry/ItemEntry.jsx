@@ -6,15 +6,6 @@ function ItemEntry(props) {
     /*should be const?*/
 
     var { itemName, itemNum, present, updateItem, deleteItem } = props;
-    //present = 1;
-    let askForData = false;
-    if (itemName == "") {
-        askForData = true;
-    }
-    const askForDataFunc = () => {
-        if (askForData) {
-        }
-    };
     return (
         <div>
             <div className="input-group mb-3">

@@ -22,19 +22,21 @@ function EventItems(props) {
             { itemName: "mate", itemNum: 2, present: 0 }
         ]);
     }, []);
-	const deleteItem = (id) => {
-		setItems(prev => {
-			return prev.filter((item) => item.itemNum!=id)
-		})
-	
-	}
+    const deleteItem = id => {
+        setItems(prev => {
+            return prev.filter(item => item.itemNum != id);
+        });
+    };
     const addItem = () => {
         setItems(prev => {
             return [
                 ...prev,
                 {
                     itemName: "",
-                    itemNum: prev[prev.length - 1].itemNum + 1,
+                    itemNum:
+                        prev.length === 0
+                            ? 0
+                            : prev[prev.length - 1].itemNum + 1,
                     present: false
                 }
             ];
@@ -57,16 +59,17 @@ function EventItems(props) {
                 itemName={item.itemName}
                 itemNum={item.itemNum}
                 present={item.present}
-				updateItem={updateItem}
-				deleteItem = {deleteItem}
+                updateItem={updateItem}
+                deleteItem={deleteItem}
+                key={item.itemNum}
             />
         );
     });
     return (
-        <div className eventNameClass>
+        <div>
             <div className="card">
                 <h1>Event Items</h1>
-                <h3>Date</h3>
+                <h3>{m_dateString}</h3>
                 <div className="card-body">
                     {i}
                     <div>
@@ -79,6 +82,7 @@ function EventItems(props) {
                     </div>
                 </div>
             </div>
+            <Link to = "/myevents">Back</Link>
 
             <Link to="/myevents">Back</Link>
         </div>

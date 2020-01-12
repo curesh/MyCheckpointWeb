@@ -35,7 +35,7 @@ function MyEvents() {
     const weekEvents = events.map(event => {
         if (event.category === "Week") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} />
+                <EventEntry name={event.name} date={event.date} id={event.id} key={event.id} />
             );
         } else {
             return null;
@@ -45,7 +45,7 @@ function MyEvents() {
     const monthEvents = events.map(event => {
         if (event.category === "Month") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} />
+                <EventEntry name={event.name} date={event.date} id={event.id} key={event.id} />
             );
         } else {
             return null;
@@ -104,7 +104,7 @@ function MyEvents() {
                 </h3>
                 {monthEvents}
             </ul>
-            <Link to = "/myCalendars">Go Back to Calendar</Link>
+            <Link to = "/myCalendars">Go back to calendars section</Link>
         </div>
     );
 }

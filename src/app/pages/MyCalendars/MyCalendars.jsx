@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CalendarEntry from '../../components/CalendarEntry/CalendarEntry';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 function MyCalendars(props) {
 
 	const [calendars, setCalendars] = useState([]);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EventEntry from "../../components/EventEntry/EventEntry";
 import "./MyEvents.css";
+import { Link } from "react-router-dom";
 function MyEvents() {
     const [events, setEvents] = useState([]);
 
@@ -144,6 +145,7 @@ function MyEvents() {
                 </h3>
                 {monthEvents}
             </ul>
+            <Link to="./myCalendars">Go to Calendars</Link>
         </div>
     );
 }

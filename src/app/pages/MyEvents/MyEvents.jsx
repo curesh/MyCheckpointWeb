@@ -94,7 +94,7 @@ function MyEvents() {
     });
     return (
         <div>
-            <ul className="list-group">
+            <ul className="list-group p-3">
                 <h1 className="text-left">My Events</h1>
             </ul>
             <ul className="list-group col-sm-12">
@@ -117,7 +117,7 @@ function MyEvents() {
                 <h3 className="text-left list-group-item bg-primary text-white">
                     <div className="row">
                         <div className="col-lg-6 col-5">
-                            <h4>Week</h4>
+                            <h4>This Week</h4>
                         </div>
                         <div className="col-lg-4 col-4">
                             <h4>Date</h4>
@@ -133,7 +133,7 @@ function MyEvents() {
                 <h3 className="text-left list-group-item bg-primary text-white">
                     <div className="row">
                         <div className="col-lg-6 col-5">
-                            <h4>Month</h4>
+                            <h4>This Month</h4>
                         </div>
                         <div className="col-lg-4 col-4">
                             <h4>Date</h4>
@@ -145,7 +145,9 @@ function MyEvents() {
                 </h3>
                 {monthEvents}
             </ul>
-            <Link to="./myCalendars">Go to Calendars</Link>
+            <Link className="btn btn-lg btn-info" to="/myCalendars">
+                Go back to calendars section
+            </Link>
         </div>
     );
 }

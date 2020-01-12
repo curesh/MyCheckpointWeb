@@ -1,11 +1,11 @@
 import React from "react";
-import "./ItemEntry.css";
-import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
+import "./CalendarEntry.css";
+//import makeCheckForItem from "../makeCheckForItem/makeCheckForItem";
 
-function ItemEntry(props) {
+function CalendarEntry(props) {
     /*should be const?*/
 
-    var { itemName, itemNum, present, updateItem, deleteItem } = props;
+    var { name, calNum, present, updateCalendar, deleteCalendar } = props;
 
     return (
         <div>
@@ -22,13 +22,15 @@ function ItemEntry(props) {
                     type="text"
                     className="form-control"
                     aria-describedby="basic-addon1"
-                    value={itemName}
-                    onChange={event => updateItem(itemNum, event.target.value)}
+                    value={name}
+                    onChange={event =>
+                        updateCalendar(calNum, event.target.value)
+                    }
                 />
                 <div className="input-group-append">
                     <button
-                        id={itemNum}
-                        onClick={event => deleteItem(event.target.id)}
+                        id={calNum}
+                        onClick={event => deleteCalendar(event.target.id)}
                         className="btn btn-danger"
                     >
                         x
@@ -39,4 +41,4 @@ function ItemEntry(props) {
     );
 }
 
-export default ItemEntry;
+export default CalendarEntry;

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function EventEntry(props) {
     const { name, date, id, color } = props;
     const styles = {
-        backgroundColor: color
+        fontSize: 20
     };
     return (
         <div>

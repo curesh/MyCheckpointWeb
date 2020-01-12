@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import ItemEntry from "../../components/ItemEntry/ItemEntry";
 import GetInputForNewItem from "../../components/GetInputForNewItem/GetInputForNewItem";
-import "./EventItems.css";
 
 function EventItems(props) {
     let m_eventName = "Sbhacks event";
@@ -69,7 +69,7 @@ function EventItems(props) {
                     {i}
                     <div>
                         <a
-                            className="btn btn-large btn-success"
+                            className="btn btn-large btn-primary text-white"
                             onClick={addItem}
                         >
                             Add Item
@@ -77,8 +77,9 @@ function EventItems(props) {
                     </div>
                 </div>
             </div>
-
-            <Link to="/myevents">Back</Link>
+            <Link className="btn btn-lg btn-info m-5" to="/myevents">
+                Back
+            </Link>
         </div>
     );
 }

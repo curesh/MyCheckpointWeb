@@ -13,7 +13,7 @@ function EventEntry(props) {
     }, []);
     return (
         <div>
-            <Link to={"./myevents/event/" + id} params={{ count }}>
+            <Link to={"./myevents/event/" + id} params={{ counts }}>
                 <li className="list-group-item">
                     <div className="text-left">
                         <div className="row">

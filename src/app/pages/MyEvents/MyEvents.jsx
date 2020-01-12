@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import EventEntry from "../../components/EventEntry/EventEntry";
 import "./MyEvents.css";
@@ -17,7 +18,12 @@ function MyEvents() {
     const todayEvents = events.map(event => {
         if (event.category === "Today") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} />
+                <EventEntry
+                    name={event.name}
+                    date={event.date}
+                    id={event.id}
+                    key={event.id}
+                />
             );
         } else {
             return null;
@@ -99,5 +105,4 @@ function MyEvents() {
         </div>
     );
 }
-
 export default MyEvents;

@@ -17,9 +17,9 @@ function ItemEntry(props) {
     };
     return (
         <div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
+            <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <div className="input-group-text">
                         <input
                             type="checkbox"
                             aria-label="Checkbox for following text input"
@@ -28,14 +28,19 @@ function ItemEntry(props) {
                 </div>
                 <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     aria-describedby="basic-addon1"
                     value={itemName}
                     onChange={event => updateItem(itemNum, event.target.value)}
                 />
                 <div className="input-group-append">
-					<button id={itemNum} onClick = {event => deleteItem(event.target.id)} className="btn btn-primary">x</button>
-				
+                    <button
+                        id={itemNum}
+                        onClick={event => deleteItem(event.target.id)}
+                        className="btn btn-primary"
+                    >
+                        x
+                    </button>
                 </div>
             </div>
         </div>

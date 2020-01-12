@@ -68,7 +68,7 @@ function EventItems(props) {
         <div>
             <div className="card">
                 <h1>Event Items</h1>
-                <h3>Date</h3>
+                <h3>{m_dateString}</h3>
                 <div className="card-body">
                     {i}
                     <div>
@@ -81,6 +81,7 @@ function EventItems(props) {
                     </div>
                 </div>
             </div>
+            <Link to = "/myevents">Back</Link>
 
 			
 		</div>

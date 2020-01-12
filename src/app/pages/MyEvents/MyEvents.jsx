@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import EventEntry from "../../components/EventEntry/EventEntry";
 import "./MyEvents.css";
+import { Link } from "react-router-dom";
+
 function MyEvents() {
     const [events, setEvents] = useState([]);
 
@@ -42,7 +44,7 @@ function MyEvents() {
     const monthEvents = events.map(event => {
         if (event.category === "Month") {
             return (
-                <EventEntry name={event.name} date={event.date} id={event.id} />
+                <EventEntry name={event.name} date={event.date} id={event.id} key={event.id} />
             );
         } else {
             return null;
@@ -101,6 +103,7 @@ function MyEvents() {
                 </h3>
                 {monthEvents}
             </ul>
+            <Link to = "/myCalendars">Go back to calendars section</Link>
         </div>
     );
 }

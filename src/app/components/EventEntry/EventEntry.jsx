@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import "./EventEntry.css";
 import { Link } from "react-router-dom";
 
 function EventEntry(props) {
     const { name, date, id } = props;
+    const [counts, setCounts] = useState([]);
+    useEffect (() => {
+        setCounts({
+            total: 10,
+            checkmarks : 5
+        })
+    }, []);
     return (
         <div>
             <Link to={"./myevents/event/" + id}>

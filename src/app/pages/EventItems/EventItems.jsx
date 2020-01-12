@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import ItemEntry from "../../components/ItemEntry/ItemEntry";
-import GetInputForNewItem from "../../components/GetInputForNewItem/GetInputForNewItem";
-import "./EventItems.css";
+
+import ItemEntry from '../../components/ItemEntry/ItemEntry';
+import GetInputForNewItem from '../../components/GetInputForNewItem/GetInputForNewItem'
 
 function EventItems(props) {
     let m_eventName = "Sbhacks event";
@@ -77,10 +77,13 @@ function EventItems(props) {
                     </div>
                 </div>
             </div>
+            <Link to = "/myevents">Back</Link>
 
-            <Link to="/myevents">Back</Link>
-        </div>
-    );
+			
+		</div>
+		
+			
+	);
 }
 
 export default EventItems;
